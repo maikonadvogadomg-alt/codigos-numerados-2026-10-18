@@ -1,34 +1,50 @@
 {
   "name": "codigosnumerados20261018",
   "version": "1.0.0",
+  "description": "codigos-numerados-2026-10-18 (Backup)",
+  "author": "Maikon",
   "private": true,
-  "description": "codigos-numerados-2026-10-18",
-  "author": "codigos-numerados-2026-10-18",
   "main": "electron/main.cjs",
-  "scripts": {
-    "desktop": "electron .",
-    "exe": "electron-builder --win portable --publish never"
-  },
+  "portaDoPrograma": 10230,
   "devDependencies": {
-    "electron": "^33.2.0",
-    "electron-builder": "^25.1.8"
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8"
   },
   "build": {
-    "appId": "com.app.codigosnumerados20261018",
-    "productName": "codigos-numerados-2026-10-18",
+    "appId": "com.maikonadvogadomgalt.codigosnumerados20261018.nbackup.pc.nbackup",
+    "productName": "codigos-numerados-2026-10-18 (Backup)",
+    "executableName": "codigos-numerados-2026-10-18-backup-nbackup",
     "directories": {
-      "output": "dist-electron"
+      "output": "release"
     },
+    "asar": false,
     "files": [
       "**/*",
       "!android/**",
       "!.github/**",
-      "!dist-electron/**",
+      "!release/**",
+      "!node_modules/.cache/**",
       "!*.zip",
-      "!.sk/**"
+      "!.sk/**",
+      "!apk.config.json"
     ],
     "win": {
-      "target": "portable"
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "icons/icon-512.png"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "codigos-numerados-2026-10-18 (Backup)",
+      "artifactName": "codigos-numerados-2026-10-18-backup-nbackup-Instalar.exe"
+    },
+    "portable": {
+      "artifactName": "codigos-numerados-2026-10-18-backup-nbackup-sem-instalar.exe"
     }
   },
   "dependencies": {
